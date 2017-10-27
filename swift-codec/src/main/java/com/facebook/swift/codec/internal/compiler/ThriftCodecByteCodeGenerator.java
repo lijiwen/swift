@@ -98,7 +98,6 @@ import static java.lang.String.format;
 public class ThriftCodecByteCodeGenerator<T>
 {
     private static final String PACKAGE = "$wift";
-
     private static final Map<ThriftProtocolType, Method> READ_METHODS;
     private static final Map<ThriftProtocolType, Method> WRITE_METHODS;
 
@@ -823,7 +822,7 @@ public class ThriftCodecByteCodeGenerator<T>
 
         classDefinition.addMethod(write);
 
-        // TProtocolReader reader = new TProtocolReader(protocol);
+        // TProtocolWriter writer = new TProtocolWriter(protocol);
         write.addLocalVariable(type(TProtocolWriter.class), "writer");
         write.newObject(TProtocolWriter.class);
         write.dup();
